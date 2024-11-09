@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Layout</title>
+</head>
+<body class="bg-gray-100">
+    <div class="flex min-h-screen">
+        <!-- Left Panel -->
+        <div class="w-1/4 bg-[#5800FF] text-white relative">
+            <!-- Back Button -->
+            <a href="#" class="absolute top-4 left-4 text-white bg-[#5800FF] hover:bg-white hover:text-[#5800FF] p-2 rounded-full border border-white transition">
+                &larr; Back
+            </a>
+
+            <div class="flex flex-col items-center justify-center h-full p-6">
+                <div class="mb-6">
+                    <img src="https://via.placeholder.com/100" alt="Profile" class="rounded-full">
+                </div>
+                <div class="text-center">
+                    <p class="text-lg font-bold">hotdogs@gmail.com</p>
+                    <p class="mt-4">My Progress</p>
+                    <label for="progress" class="block text-sm mt-2">Label</label>
+                    <input type="range" id="progress" min="0" max="100" value="50" class="w-full">
+                    <p class="text-sm mt-2">Description</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="flex-1 p-6 grid grid-cols-3 gap-4">
+            <!-- Card 1 -->
+            <a href="page.html" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition">
+                <div class="h-32 bg-gray-200 rounded mb-2"></div>
+                <h2 class="font-bold">Text</h2>
+                <p>Body text.</p>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="page.html" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition">
+                <div class="h-32 bg-gray-200 rounded mb-2"></div>
+                <h2 class="font-bold">Text</h2>
+                <p>Body text.</p>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="page.html" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition">
+                <div class="h-32 bg-gray-200 rounded mb-2"></div>
+                <h2 class="font-bold">Text</h2>
+                <p>Body text.</p>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="page.html" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition">
+                <div class="h-32 bg-gray-200 rounded mb-2"></div>
+                <h2 class="font-bold">Text</h2>
+                <p>Body text.</p>
+            </a>
+
+            <!-- Card 5 -->
+            <a href="page.html" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition">
+                <div class="h-32 bg-gray-200 rounded mb-2"></div>
+                <h2 class="font-bold">Text</h2>
+                <p>Body text.</p>
+            </a>
+
+            <!-- Card 6 -->
+            <a href="page.html" class="bg-white p-4 rounded shadow hover:bg-gray-100 transition">
+                <div class="h-32 bg-gray-200 rounded mb-2"></div>
+                <h2 class="font-bold">Text</h2>
+                <p>Body text.</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
