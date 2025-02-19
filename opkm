@@ -1,0 +1,108 @@
+#include <iostream>
+
+using namespace std;
+
+// Function prototypes
+void buyGroceries();
+void decorateVenue();
+void cookFood();
+void arrangeTables();
+void setupMusic();
+void cleanVenue();
+
+// Cleaning functions (data parallelism)
+void sweep();
+void mop();
+void dust();
+void takeOutTrash();
+void arrangeItems();
+
+// Simulated delay function
+void delay(int duration) {
+    for (volatile int i = 0; i < duration * 100000000; i++); // Busy-wait loop for simulation
+}
+
+int main() {
+    // Task Parallelism - Faculty members doing different tasks
+    cout << "Starting party preparation tasks...\n";
+
+    buyGroceries();
+    decorateVenue();
+    cookFood();
+    arrangeTables();
+    setupMusic();
+
+    cout << "\nStarting cleaning tasks (Data Parallelism)...\n";
+
+    // Data Parallelism - Cleaning divided among multiple people
+    sweep();
+    mop();
+    dust();
+    takeOutTrash();
+    arrangeItems();
+
+    cout << "\nParty preparation is complete!\n";
+    return 0;
+}
+
+// Task Parallelism functions
+void buyGroceries() {
+    cout << "Buying groceries...\n";
+    delay(2);
+    cout << "Groceries bought!\n";
+}
+
+void decorateVenue() {
+    cout << "Decorating the venue...\n";
+    delay(3);
+    cout << "Decoration completed!\n";
+}
+
+void cookFood() {
+    cout << "Cooking food...\n";
+    delay(4);
+    cout << "Food is ready!\n";
+}
+
+void arrangeTables() {
+    cout << "Arranging tables and chairs...\n";
+    delay(2);
+    cout << "Tables arranged!\n";
+}
+
+void setupMusic() {
+    cout << "Setting up music and lights...\n";
+    delay(2);
+    cout << "Music and lights are set up!\n";
+}
+
+// Data Parallelism functions (Cleaning)
+void sweep() {
+    cout << "Sweeping the venue...\n";
+    delay(2);
+    cout << "Sweeping done!\n";
+}
+
+void mop() {
+    cout << "Mopping the floor...\n";
+    delay(3);
+    cout << "Mopping done!\n";
+}
+
+void dust() {
+    cout << "Dusting furniture...\n";
+    delay(2);
+    cout << "Dusting done!\n";
+}
+
+void takeOutTrash() {
+    cout << "Taking out the trash...\n";
+    delay(2);
+    cout << "Trash taken out!\n";
+}
+
+void arrangeItems() {
+    cout << "Arranging cleaned items...\n";
+    delay(2);
+    cout << "Arrangement complete!\n";
+}
