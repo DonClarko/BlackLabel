@@ -1,0 +1,125 @@
+#include <iostream>
+#include <pthread.h>
+#include <unistd.h>
+
+using namespace std;
+
+// Function prototypes
+void* buyGroceries(void* arg);
+void* decorateVenue(void* arg);
+void* cookFood(void* arg);
+void* arrangeTables(void* arg);
+void* setupMusic(void* arg);
+void* cleanVenue(void* arg);
+
+// Cleaning functions (data parallelism)
+void* sweep(void* arg);
+void* mop(void* arg);
+void* dust(void* arg);
+void* takeOutTrash(void* arg);
+void* arrangeItems(void* arg);
+
+int main() {
+    pthread_t faculty[5], cleaningTasks[5];
+
+    // Task Parallelism
+    pthread_create(&faculty[0], NULL, buyGroceries, NULL);
+    pthread_create(&faculty[1], NULL, decorateVenue, NULL);
+    pthread_create(&faculty[2], NULL, cookFood, NULL);
+    pthread_create(&faculty[3], NULL, arrangeTables, NULL);
+    pthread_create(&faculty[4], NULL, setupMusic, NULL);
+
+    // Wait for faculty tasks to finish
+    for (int i = 0; i < 5; i++) {
+        pthread_join(faculty[i], NULL);
+    }
+
+    cout << "\nStarting cleaning tasks (Data Parallelism)...\n";
+
+    // Data Parallelism for Cleaning
+    pthread_create(&cleaningTasks[0], NULL, sweep, NULL);
+    pthread_create(&cleaningTasks[1], NULL, mop, NULL);
+    pthread_create(&cleaningTasks[2], NULL, dust, NULL);
+    pthread_create(&cleaningTasks[3], NULL, takeOutTrash, NULL);
+    pthread_create(&cleaningTasks[4], NULL, arrangeItems, NULL);
+
+    // Wait for cleaning tasks to finish
+    for (int i = 0; i < 5; i++) {
+        pthread_join(cleaningTasks[i], NULL);
+    }
+
+    cout << "\nParty preparation is complete!\n";
+    return 0;
+}
+
+// Task Parallelism functions
+void* buyGroceries(void* arg) {
+    cout << "Buying groceries...\n";
+    sleep(2);
+    cout << "Groceries bought!\n";
+    return NULL;
+}
+
+void* decorateVenue(void* arg) {
+    cout << "Decorating the venue...\n";
+    sleep(3);
+    cout << "Decoration completed!\n";
+    return NULL;
+}
+
+void* cookFood(void* arg) {
+    cout << "Cooking food...\n";
+    sleep(4);
+    cout << "Food is ready!\n";
+    return NULL;
+}
+
+void* arrangeTables(void* arg) {
+    cout << "Arranging tables and chairs...\n";
+    sleep(2);
+    cout << "Tables arranged!\n";
+    return NULL;
+}
+
+void* setupMusic(void* arg) {
+    cout << "Setting up music and lights...\n";
+    sleep(2);
+    cout << "Music and lights are set up!\n";
+    return NULL;
+}
+
+// Data Parallelism functions (Cleaning)
+void* sweep(void* arg) {
+    cout << "Sweeping the venue...\n";
+    sleep(2);
+    cout << "Sweeping done!\n";
+    return NULL;
+}
+
+void* mop(void* arg) {
+    cout << "Mopping the floor...\n";
+    sleep(3);
+    cout << "Mopping done!\n";
+    return NULL;
+}
+
+void* dust(void* arg) {
+    cout << "Dusting furniture...\n";
+    sleep(2);
+    cout << "Dusting done!\n";
+    return NULL;
+}
+
+void* takeOutTrash(void* arg) {
+    cout << "Taking out the trash...\n";
+    sleep(2);
+    cout << "Trash taken out!\n";
+    return NULL;
+}
+
+void* arrangeItems(void* arg) {
+    cout << "Arranging cleaned items...\n";
+    sleep(2);
+    cout << "Arrangement complete!\n";
+    return NULL;
+}
